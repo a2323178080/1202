@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/0810/dist/',
+  publicPath: '/0812/dist/',
   lintOnSave: false,
 }

@@ -27,8 +27,9 @@
             <td>
               <ul class="list-unstyled">
                 <li v-for="(product, i) in item.products" :key="i">
-                  {{ product.product.title }} {{ product.qty }}
-                  {{ product.product.unit }}
+                  {{ product.product.title }} 
+                  {{ product.qty }}
+                  <!-- {{ product.product.unit }} -->
                 </li>
               </ul>
             </td>
@@ -57,8 +58,16 @@
         </tbody>
       </table>
     </div>
+
+
+
     <!-- 分頁 -->
     <Pagination :pages="pagination" @emit-pages="getOrders"/>
+
+
+
+
+    
     <!-- orderModal -->
     <div class="modal fade" id="orderModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true" ref="orderModal">
@@ -79,7 +88,7 @@
               <div v-for="item in tempOrder.products" :key="item.id">
                 <div class="row">
                   <div class="col-6">
-                    <p>{{ item.product.title }} {{ item.qty }} {{ item.product.unit }}</p>
+                    <p>{{ item.product.title }} {{ item.qty }} </p>
                   </div>
                   <div class="col-6">
                     <p class="text-end">NT$ {{ $filters.currency(item.final_total) }} 元</p>
@@ -120,6 +129,8 @@
         </div>
       </div>
     </div>
+
+    
     <!-- DelOrderModal -->
     <div class="modal fade" id="delOrderModal" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true" ref="delOrderModal">
@@ -178,6 +189,14 @@ export default {
         }
       })
     },
+
+
+    openOrderModal (item) {
+      this.tempOrder = item
+      this.orderModal.show()
+    },
+
+
     delOrder () {
       const api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${this.tempOrder.id}`
       this.isLoading = true
@@ -190,10 +209,7 @@ export default {
         }
       })
     },
-    openOrderModal (item) {
-      this.tempOrder = item
-      this.orderModal.show()
-    },
+    
     openDelModal (item) {
       this.tempOrder = item
       this.delOrderModal.show()

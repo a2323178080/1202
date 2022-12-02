@@ -238,6 +238,7 @@ export default {
 
 
     addFollow (id) {
+
       this.isLoading = true
       const followId = this.followData.indexOf(id)
       if (followId === -1) {
@@ -247,10 +248,16 @@ export default {
         this.followData.splice(followId, 1)
         this.emitter.emit('message:push', { message: '已取消收藏', status: 'danger' })
       }
+
+      // 0.5秒之後loading效果要消失
       setTimeout(() => {
         this.isLoading = false
       }, 500)
+
+
+      // 建立localStorage
       localStorage.setItem('follow', JSON.stringify(this.followData))
+
     },
     goBack () {
       this.$router.back()

@@ -165,6 +165,8 @@
 
 
 
+
+
     <!-- DelModal -->
     <div class="modal fade" id="delProductModal" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalLabel" aria-hidden="true" ref="delModal">

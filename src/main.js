@@ -53,6 +53,7 @@ app.config.globalProperties.$filters = {
   date
 }
 app.component('Loading', Loading)
+
 app.component('Form', Form)
 app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)

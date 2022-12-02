@@ -61,13 +61,15 @@
                 </a>
               </li>
             </ul>
-            <ul class="navbar-nav px-4 mt-2 mb-3 d-md-none d-md-block">
+            <ul class="navbar-nav px-4 mt-2 mb-3 d-md-none d-block">
               <li class="nav-item text-nowrap">
                 <a class="nav-link text-light fw-bold a-hover fs-4" href="#" @click="signout">登出</a>
               </li>
             </ul>
           </div>
         </nav>
+
+        
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
           <RouterView/>
         </main>
